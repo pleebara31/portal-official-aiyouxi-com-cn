@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1xbet 简明访问指南 · 信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fce9d7 0%, #f7d9bf 40%, #f3cba5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #2b2b2b;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 主 Hero 卡片 — 暖色渐变 + 白色内容底板 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 36px;
+            padding: 2.5rem 2.5rem 3rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 20px 40px -12px rgba(160, 100, 60, 0.25);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #442b1a;
+            margin-bottom: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.25rem 0.6rem;
+        }
+
+        .hero-title .accent {
+            background: #f2dac0;
+            padding: 0.1rem 1rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #3e2a19;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #5d4a39;
+            margin-bottom: 1.8rem;
+            border-left: 5px solid #dbb38a;
+            padding-left: 1.2rem;
+            background: #f9f1e9;
+            border-radius: 0 60px 60px 0;
+            display: inline-block;
+            padding: 0.4rem 1.8rem 0.4rem 1.2rem;
+        }
+
+        .hero-text {
+            font-size: 1.05rem;
+            color: #3d342b;
+            max-width: 85%;
+        }
+
+        .hero-text a {
+            color: #b45f2a;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #eac6a8;
+            transition: border-bottom 0.15s, color 0.15s;
+        }
+
+        .hero-text a:hover {
+            border-bottom: 2px solid #b45f2a;
+            color: #8b471c;
+        }
+
+        /* 信息卡片网格 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2.2rem;
+            box-shadow: 0 16px 30px -12px rgba(120, 75, 40, 0.18);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 40px -14px rgba(100, 60, 30, 0.22);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            display: inline-block;
+            background: #f5e3d1;
+            width: 56px;
+            height: 56px;
+            line-height: 56px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+            color: #633f25;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #362519;
+            margin-bottom: 0.9rem;
+        }
+
+        .card p {
+            color: #4b3c30;
+            font-size: 0.97rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.6rem;
+        }
+
+        .card li {
+            padding: 0.3rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+            font-size: 0.96rem;
+            color: #4a382b;
+        }
+
+        .card li::before {
+            content: "•";
+            color: #c28250;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 自然链接段落卡片 (特殊卡片) */
+        .link-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 16px 30px -12px rgba(120, 75, 40, 0.18);
+            border-left: 8px solid #dbaa7c;
+        }
+
+        .link-card p {
+            font-size: 1.06rem;
+            color: #3e3329;
+            margin-bottom: 0.9rem;
+        }
+
+        .link-card a {
+            color: #b45f2a;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #e7c7ae;
+            transition: border-bottom 0.15s, color 0.15s;
+        }
+
+        .link-card a:hover {
+            border-bottom: 2px solid #b45f2a;
+            color: #87441b;
+        }
+
+        .link-card .small-note {
+            display: inline-block;
+            background: #f5e6da;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #5d4635;
+            margin-top: 0.6rem;
+        }
+
+        /* FAQ 摘要 (紧凑卡片) */
+        .faq-summary {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2.2rem 2.2rem;
+            box-shadow: 0 12px 24px -10px rgba(110, 70, 40, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #362519;
+            margin-bottom: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eedbcb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #3f2d1d;
+            font-size: 1.05rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-a {
+            color: #514235;
+            font-size: 0.95rem;
+            padding-left: 0.8rem;
+            border-left: 3px solid #e7c7ae;
+            padding-left: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            padding: 2rem 0.5rem 1rem;
+            color: #5d4a38;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+        }
+
+        .footer-note span {
+            background: #f2e3d6;
+            padding: 0.1rem 0.8rem;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero-card {
+                padding: 1.8rem 1.5rem 2rem;
+                border-radius: 28px;
+            }
+            .hero-title {
+                font-size: 1.9rem;
+            }
+            .hero-text {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+            .hero-sub {
+                font-size: 0.95rem;
+                padding: 0.3rem 1rem;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .link-card {
+                padding: 1.6rem 1.5rem;
+            }
+            .faq-summary {
+                padding: 1.4rem 1.2rem 1.8rem;
+            }
+            .faq-summary h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.6rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.2rem;
+            }
+            .hero-title .accent {
+                font-size: 1rem;
+                padding: 0.1rem 0.8rem;
+            }
+            .card-icon {
+                width: 48px;
+                height: 48px;
+                line-height: 48px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- Hero 卡片：主视觉 + 简明指南 -->
+    <div class="hero-card">
+        <div class="hero-title">
+            <span>访问提示·简明指南</span>
+            <span class="accent">1xbet</span>
+        </div>
+        <div class="hero-sub">⚡ 从实用角度了解平台入口与基本用法</div>
+        <div class="hero-text">
+            <p style="margin-bottom: 0.8rem;">
+                很多人第一次接触 <a href="https://trust-1xbet.com">1xbet</a> 时，会关心如何顺利访问、有哪些功能可用、以及怎样避免常见误区。
+                我们整理了这份信息卡片式页面，用清晰的模块帮你快速建立认知。所有内容都基于公开信息与常规使用场景，不夸大也不误导。
+            </p>
+            <p>
+                如果你正在寻找一个可靠的起点，可以直接通过 <a href="https://trust-1xbet.com">1xbet</a> 的站点了解其服务范围。
+                下面的卡片分别介绍用途、适合人群以及一些实用提醒。
+            </p>
+        </div>
+    </div>
+
+    <!-- 用途卡片 + 适合人群 (网格) -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-icon">📌</div>
+            <h3>主要用途</h3>
+            <p>平台提供体育赛事投注、电子竞技、真人娱乐、棋牌游戏及各类虚拟体育项目。用户可依据自己的兴趣选择不同版块，界面支持多语言与多种支付方式。</p>
+            <ul>
+                <li>体育赛事：足球、篮球、网球等主流联赛</li>
+                <li>电竞项目：Dota2、CS2、LoL 等即时数据</li>
+                <li>真人娱乐：荷官直播、百家乐、轮盘</li>
+                <li>虚拟体育与快速游戏</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">👥</div>
+            <h3>适合人群</h3>
+            <p>无论你是体育爱好者、电竞观众，还是喜欢棋牌或休闲游戏的玩家，都能在平台里找到对应内容。平台对新手和成熟用户均保持统一的体验标准。</p>
+            <ul>
+                <li>关注国际赛事的体育迷</li>
+                <li>喜欢即时数据与动态赔率的用户</li>
+                <li>偏好真人互动游戏的玩家</li>
+                <li>希望尝试多种娱乐方式的成年用户</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🧭</div>
+            <h3>访问提醒</h3>
+            <p>由于网络环境变化，有时需要使用辅助方式访问。建议通过官方推荐的域名或镜像页面进入，并留意浏览器的安全提示。</p>
+            <ul>
+                <li>收藏可靠域名，避免仿冒站点</li>
+                <li>使用最新版本浏览器，保持连接安全</li>
+                <li>如遇到访问问题，可查看官方公告</li>
+                <li>不随意分享账户信息给第三方</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 自然链接段落卡片 (嵌入 1xbet 链接) -->
+    <div class="link-card">
+        <p>
+            <strong>从简明指南出发</strong> —— 如果你准备亲自体验，建议先从 <a href="https://trust-1xbet.com">1xbet</a> 的体育板块开始，那里有清晰的赛事列表和实时数据。
+            对于初次登录的用户，平台通常提供演示或新手指引，方便你逐步熟悉界面与规则。
+        </p>
+        <p>
+            另外，如果你对某个特定项目（例如电竞或虚拟体育）有疑问，也可以直接通过 <a href="https://trust-1xbet.com">1xbet</a> 的帮助中心或常见问题页面查找答案。
+            保持信息来源可靠，能减少不必要的困扰。
+        </p>
+        <span class="small-note">🔒 建议使用安全网络，并留意当地法规要求</span>
+    </div>
+
+    <!-- FAQ 摘要卡片 -->
+    <div class="faq-summary">
+        <h2><span style="background: #e7ccb6; border-radius: 40px; padding: 0.1rem 0.8rem;">❓</span> 常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">1. 平台是否支持手机访问？</div>
+            <div class="faq-a">支持。既可通过移动浏览器直接访问，也提供适用于 iOS 与 Android 的应用程序（需通过官网或官方渠道获取）。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">2. 注册时需要提供哪些信息？</div>
+            <div class="faq-a">通常需要邮箱或手机号、用户名及密码，部分情况可能要求身份验证以符合合规要求。请确保信息真实有效。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">3. 如果遇到打不开的情况怎么办？</div>
+            <div class="faq-a">可以尝试清除浏览器缓存、切换网络或使用官方提供的备用域名。同时注意不要轻信非官方的“加速器”或“代理”链接。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">4. 如何确保账户安全？</div>
+            <div class="faq-a">设置强密码、开启双重验证（若平台支持）、不在公共设备上保存登录状态。定期检查登录设备记录。</div>
+        </div>
+    </div>
+
+    <!-- 页脚 (简单装饰) -->
+    <div class="footer-note">
+        <span>✱ 信息卡片 · 内容基于公开资料整理 · 仅供参考</span>
+        <br style="display: block; margin-top: 8px;">
+        <span style="background: transparent; font-size: 0.8rem; color: #6b5848;">c2908541a2dfc439</span>
+    </div>
+</div>
+</body>
+</html>
