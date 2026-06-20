@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1xbet 站点介绍与说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9fafc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e4e9f0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #0b1a2e;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: #5f6b7a;
+            max-width: 540px;
+        }
+
+        /* 卡片组 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+            border: 1px solid #edf2f9;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 20, 50, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #13243c;
+            letter-spacing: -0.01em;
+            border-left: 4px solid #2f6c9f;
+            padding-left: 0.75rem;
+        }
+
+        .card p {
+            margin-bottom: 0.9rem;
+            color: #2d3848;
+        }
+
+        .card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 0.6rem;
+        }
+
+        .highlight-list li {
+            padding: 0.4rem 0 0.4rem 1.4rem;
+            position: relative;
+            font-size: 0.98rem;
+            color: #1e2e44;
+        }
+
+        .highlight-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #2f6c9f;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .divider-light {
+            margin: 0.6rem 0 1.2rem;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #dce3ed, transparent);
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .scenario-item {
+            background: #f5f8fe;
+            border-radius: 14px;
+            padding: 1rem 1rem 1rem 1.2rem;
+            border-left: 3px solid #b9cde0;
+        }
+
+        .scenario-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0f253c;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .scenario-item span {
+            font-size: 0.88rem;
+            color: #3f4f62;
+        }
+
+        .tip-box {
+            background: #f1f5fb;
+            border-radius: 14px;
+            padding: 1.4rem 1.8rem;
+            border: 1px solid #dce6f2;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .tip-box p {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-block {
+            margin-top: 1rem;
+        }
+
+        .faq-block details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #e4eaf2;
+            padding-bottom: 0.7rem;
+        }
+
+        .faq-block summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1a304a;
+            padding: 0.2rem 0;
+            font-size: 0.98rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-block summary::before {
+            content: "▸";
+            margin-right: 0.5rem;
+            color: #2f6c9f;
+            transition: transform 0.15s;
+        }
+
+        .faq-block details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-block details p {
+            margin: 0.4rem 0 0.2rem 1.4rem;
+            font-size: 0.92rem;
+            color: #3b4b60;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e4e9f0;
+            font-size: 0.85rem;
+            color: #6b7c8e;
+            text-align: center;
+        }
+
+        .footer-note a {
+            color: #1f5b8a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #1f5b8a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 550px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero .subhead {
+                font-size: 0.92rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card h2 {
+                font-size: 1.2rem;
+            }
+            .tip-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <section class="hero">
+            <h1>关于站点的说明</h1>
+            <p class="subhead">这是一份针对 <strong>web-index-1xbet.com</strong> 的整理式介绍，帮助您快速了解该站点的定位、特点与使用场景。</p>
+        </section>
+
+        <div class="card">
+            <h2>站点摘要</h2>
+            <p>web-index-1xbet.com 是一个以信息索引与功能引导为主的页面，旨在为对相关服务感兴趣的用户提供清晰的访问路径。站点本身不直接处理交易或账户操作，而是作为了解平台概况的起点。</p>
+            <p>页面结构简洁，侧重提供核心说明与指引，适合初次接触或希望快速查阅基本内容的用户。</p>
+        </div>
+
+        <div class="card">
+            <h2>亮点与特点</h2>
+            <ul class="highlight-list">
+                <li><strong>索引式呈现</strong> — 将常用功能与信息分类汇总，减少检索成本。</li>
+                <li><strong>多语言覆盖</strong> — 面向不同地区用户，提供语言与区域适配选项。</li>
+                <li><strong>轻量加载</strong> — 页面资源经过优化，在多数网络环境下响应较快。</li>
+                <li><strong>模块化布局</strong> — 各功能分区明确，便于按需查找。</li>
+            </ul>
+            <hr class="divider-light">
+            <p style="font-size: 0.92rem; color: #3f5268;">以上特点基于公开页面结构与使用体验整理，具体内容以实际页面为准。</p>
+        </div>
+
+        <div class="card">
+            <h2>使用场景建议</h2>
+            <p>根据常见的使用习惯，以下场景下访问该站点可能比较合适：</p>
+            <div class="scenario-grid">
+                <div class="scenario-item">
+                    <strong>信息查阅</strong>
+                    <span>当您需要了解平台提供的服务类型、规则摘要或联系方式时。</span>
+                </div>
+                <div class="scenario-item">
+                    <strong>语言切换</strong>
+                    <span>通过页面顶部的语言选择器，快速切换至您偏好的界面语言。</span>
+                </div>
+                <div class="scenario-item">
+                    <strong>功能入口</strong>
+                    <span>站点中集成了若干常用功能的链接，可作为访问起点。</span>
+                </div>
+                <div class="scenario-item">
+                    <strong>移动端浏览</strong>
+                    <span>页面针对手机屏幕做了适配，在较小设备上阅读体验良好。</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>可信与克制说明</h2>
+            <p>本介绍页面基于客观观察撰写，不包含任何诱导性表述或未经核实的承诺。站点 <a href="https://web-index-1xbet.com" style="color:#1f5b8a; text-decoration: underline; text-underline-offset: 3px; font-weight: 500;">1xbet</a> 本身为信息索引类页面，使用前建议您自行判断其内容与自身需求的匹配程度。</p>
+            <p>任何涉及账户、支付或隐私的操作，请务必在官方渠道完成，并注意保护个人信息安全。</p>
+
+            <div class="tip-box">
+                <p><strong>📌 小提示</strong></p>
+                <p>如果您是首次访问，可以先浏览页面顶部的导航与常见问题区域，这通常能快速解答大部分基础疑问。</p>
+                <p>建议在稳定的网络环境下使用，并留意浏览器地址栏的网址信息。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>FAQ 摘要</h2>
+            <div class="faq-block">
+                <details>
+                    <summary>这个站点是官方平台吗？</summary>
+                    <p>web-index-1xbet.com 是一个功能索引页面，并非主业务平台。请通过官方渠道确认主站地址。</p>
+                </details>
+                <details>
+                    <summary>是否需要注册才能浏览？</summary>
+                    <p>不需要。该站点的大部分内容对访客开放，无需登录即可查看。</p>
+                </details>
+                <details>
+                    <summary>页面加载缓慢怎么办？</summary>
+                    <p>可尝试刷新页面、切换网络或使用其他浏览器。如果问题持续，建议检查网络连接状态。</p>
+                </details>
+                <details>
+                    <summary>网站支持哪些语言？</summary>
+                    <p>页面通常提供多种语言选项，您可以在界面顶部或页脚找到语言切换按钮。</p>
+                </details>
+            </div>
+        </div>
+
+        <footer class="footer-note">
+            <p>本页为独立整理的内容介绍，与 <a href="https://web-index-1xbet.com">1xbet</a> 站点无直接隶属关系。信息仅供参考，请以实际页面为准。</p>
+            <p style="margin-top: 0.6rem; opacity: 0.7;">—— 2025 · 简洁说明页</p>
+        </footer>
+
+    </div>
+</body>
+</html>
